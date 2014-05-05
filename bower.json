@@ -1,0 +1,11 @@
+{
+  "name": "client-ui",
+  "version": "1.0.0",
+  "dependencies": {
+    "curl": "https://github.com/cujojs/curl.git",
+    "curl-adaptive-handlebars": "https://github.com/FrontMen/curl-adaptive-handlebars.git#master"
+  },
+  "devDependencies": {
+    "normalize-css": "~3.0.1"
+  }
+}
