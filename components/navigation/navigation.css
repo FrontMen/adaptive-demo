@@ -1,0 +1,52 @@
+body {
+	position: absolute;
+	background: url("../../img/pattern1.jpg") center bottom transparent;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+}
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+.navigation {
+	background: rgba(0,0,0,.6);
+	width: 100%;
+	height: 145px;
+	position: relative;
+	padding: 25px;
+	box-shadow: 0 5px 10px rgba(40,40,40,.8);
+	border-bottom: 1px solid rgba(250,250,250, 0.9);
+}
+
+.navigation img {
+	height: calc(100% - 20px);
+	display: inline-block;
+	margin: 10px 0;
+}
+
+.navigation ul {
+	font-family: helvetica;
+	list-style: none;
+	margin: 0;
+	padding: 20px;
+	color: #fff;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 30px;
+	width: calc(100% - 315px);
+	text-align: right;
+}
+
+
+.navigation ul li {
+	display: inline-block;
+}
+
+
+.navigation ul li a, .navigation ul li a:visited, .navigation ul li a:hover {
+	color: #fff;
+	outline: none;
+	text-decoration:none;
+}

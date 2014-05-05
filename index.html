@@ -1,269 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<title>CSSS: A brief introduction</title>
-	
-	<link href="slideshow.css" rel="stylesheet" />
-	<link href="theme.css" rel="stylesheet" />
-	<link href="talk.css" rel="stylesheet" />
-	<script src="prefixfree.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Demo</title>
+	<link rel="stylesheet" type="text/css" href="lib/normalize-css/normalize.css">
+	<script src="lib/curl/dist/curl/curl.js"></script>
 </head>
-<body data-duration="10">
+<body>
+	<main>
+		<header data-navigation></header>
+	</main>
+	
+	<script>
+		curl.config({
+			"paths": {
+				"curl/plugin/": "lib/curl/src/curl/plugin",
+				"handlebars" : "lib/handlebars/handlebars.amd"
+			},
+			"packages": {
+			    "hbs": {
+			        "location": "lib/curl-handlebars/src",
+			        "main": "hbs.js"
+			    }
+			},
+		    pluginPath: 'lib/curl/src/curl/plugin'
+		});
 
-<header id="intro" class="slide">
-	<h1>
-		Adaptive templating in singe page applications
-	</h1>
-	<p class="attribution">By Paapster & Randynamic</p>
-</header>
-<section>
-	<header class="slide" title="Introduction">
-		<h1>Introduction</h1>
-	</header>
+		curl(['components/navigation/navigation.bar'], function (NavigationBar) {
+		    var navigation = new NavigationBar({"logo": 'img/logo_white.png'});
 
-	<header class="slide" title="The Paapster">
-		<h1>The Paapster</h1>
-	</header>
-	
-	<header class="slide" title="Randynamic">
-		<h1>Randynamic</h1>
-	</header>
-	
-	<section class="slide" title="Randynamic">
-		<h2>I love js</h2>
-		<img style="width:500px;" src="img/lovejs.jpg">
-	</section>
-	
-	<section class="slide" title="Randynamic">
-		<h2>I love CSS</h2>
-		<img style="width:500px;" src="img/lovecss.jpeg"></li>
-		<p class="presenter-notes">When I saw this I thought he let's go to the club and try it out......
-			no success.
-			The first girl told me right away my padding was to large.</p>
-	</section>
-	
-	<section class="slide" title="Randynamic">
-		<h2>So I stopped loving HTML</h2>
-		<img style="width:500px;" src="img/html.jpg">
-	</section>
-	
-	<section class="slide" title="Randynamic">
-		<h2>FrontMentor</h2>
-		<img style="width:500px;bottom: 0;position: absolute;" src="img/frontmentor.png">
-	</section>
-	
-	<section class="slide" title="Randynamic">
-		<h2>Freelancer during the week</h2>
-		<img style="width:700px;" src="img/freelance-superhero.jpeg">
-	</section>
-	
-	<section class="slide" title="Randynamic">
-		<h2>Play angry villains in the weekend!</h2>
-		<img style="width:700px;" src="img/carnage.png">
-	</section>
-	
-	<section class="slide" title="Agenda">
-		<h2>Agenda</h2>
-		<ul>
-			<li class="delayed">1</li>
-			<li class="delayed">2</li>
-			<li class="delayed">3</li>
-			<li class="delayed">4</li>
-			<li class="delayed">5</li>
-		</ul>
-	</section>
-</section>
-
-
-
-
-
-
-
-
-
-
-<section>
-	<header class="slide">
-		<h1>Features</h1>
-	</header>
-	
-	<section class="slide">
-		<h2>Timer</h2>
-		<ul>
-			<li>Timer in the form of a progress bar on the top</li>
-			<li>Define the talk duration with the attribute <code>data-duration</code> on the <code>body</code></li>
-			<li>Style the timer and the end state with the selectors <code>#timer</code> and <code>#timer.end</code> respectively.</li>
-		</ul>
-	</section>
-	
-	<section class="slide">
-		<h2>Presenter view</h2>
-		<p>This slide has presenter notes. They are only visible in presenter view (Ctrl+P or Shift+P).</p>
-		<p class="presenter-notes">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	</section>
-	
-	<section class="slide">
-		<style scoped>
-			h2 {
-				font-size: 200%;
-				font-weight: bold;
-			}
-		</style>
-		<h2><code>&lt;style scoped /&gt;</code></h2>
-		<p>You can use the HTML5 <code>scoped</code> attribute on style elements in slides, to only style the current slide or inside sections that include multiple slides to style all of them and nothing else.</p>
-		<p>For example, inspect this slide and then run <code>$$('style[scoped]')[0].sheet.cssRules[0].selectorText</code> in the console to see how the original selector gets changed.</p>
-	</section>
-	
-	<section class="slide">
-		<h2>More features</h2>
-		<ul>
-			<li class="delayed">IDs are dynamically assigned by JavaScript&hellip;</li>
-			<li class="delayed">&hellip;but you can also assign your own, bringing the best of both worlds</li>
-			<li class="delayed">Incremental display of slide contents (just add <code>class="delayed"</code>)</li>
-			<li class="delayed">Slide scaling based on window size (size everything you want to be scalable in ems)</li>
-			<li class="delayed">Document.title changing according to slide title (fetched either from the <code>title</code> attribute or the slide's heading)</li>
-		</ul>
-	</section>
-	
-	<section class="slide">
-		<h2>Drawbacks</h2>
-		<ul>
-			<li>Only supports modern browsers. Why?
-				<ul>
-					<li>More lightweight</li>
-					<li>Easier to understand code</li>	
-					<li>It's a presentation, so the environment is controlled anyway</li>
-				</ul>
-			</li>
-			<li>No mouse click to advance to the next slide. I consider it annoying.</li>
-			<li>Doesn't work in mobile :(</li>
-		</ul>
-	</section>
-</section>
-
-<section>
-	<header class="slide">
-		<h1>Plugins</h1>
-	</header>
-	
-	<section class="slide">
-		<h2>Plugin: CSS Snippets</h2>
-		<pre>new CSSSnippet(document.getElementById('snippet'));</pre>
-		<ul>
-			<li>Dynamically edit CSS and reflect the results in any element's style
-				<ul>
-					<li>Which one? Specify a selector with the <code>data-subject</code> attribute or leave blank for the slide to be the subject</li>
-				</ul>
-			<li>Automatically prefixes CSS3 properties/values, when needed
-				<ul>
-					<li>Also does it with the style attribute (statically) if the element is not a text field (doesn't work in IE and Firefox 3.6)</li>
-				</ul>
-			</li>
-			<li>Textarea automatically adjusts rows/font-size on line break (use class <code>dont-adjust</code> to turn off)</li>
-		</ul>
-	</section>
-	
-	<section class="slide">
-		<h2>CSS Snippets demo</h2>
-		<p>Edit the following CSS code:</p>
-		<textarea class="snippet">background-color:red;
-background-image: linear-gradient(red, #600)</textarea>
-	</section>
-	
-	<section class="slide" id="animation-demo">
-		<h2>CSS Snippets: raw CSS</h2>
-		<textarea class="snippet" data-raw>@keyframes rainbow {
-	from, to { background: red }
-	16% { background: yellow }
-	33% { background: green }
-	50% { background: aqua }
-	66% { background: blue }
-	83% { background: fuchsia }
-}
-
-#animation-demo { animation: 30s rainbow infinite; }</textarea>
-	</section>
-	
-	<section class="slide">
-		<h2>Plugin: CSS Controls</h2>
-		<ul>
-			<li>Use sliders and other controls to adjust CSS values
-				<ul>
-					<li>Which one? Specify a selector with the <code>data-subject</code> attribute or leave blank for the slide to be the subject</li>
-					<li>Specify style with <code>data-style</code> (use <code>{value}</code> where the result will be)</li>
-				</ul>
-			<li>Automatically prefixes CSS3 properties/values, when needed</li>
-		</ul>
-	</section>
-	
-	<section class="slide" id="css-controls-demo">
-		<h2>CSS Controls demo</h2>
-		<label>Slide lightness: 
-			<input type="range" min="0" max="255" value="128" data-style="background-color:rgb({value}, {value}, {value});" class="css-control" />
-		</label>
-		<label>
-			border-width:
-			<input type="number" min="0" max="60" value="30" data-style="border-width: {value}px;" class="css-control" size="5" />
-		</label>
-		<label>
-			font-family:
-			<select data-style="font-family: {value};" class="css-control">
-				<option selected>sans-serif</option>
-				<option>Georgia, serif</option>
-				<option>Consolas, monospace</option>
-				<option>'Trebuchet MS', sans-serif</option>
-			</select>
-		</label>
-	</section>
-	
-	<section class="slide">
-		<h2>Plugin: Code highlight</h2>
-		<ul>
-			<li>Syntax highlighting for every <code>&lt;code&gt;</code> element with a <code>lang</code> attribute.</li>
-			<li>Only highlights when the slide becomes active, for performance</li>
-			<li>Currently only supports JavaScript, but it's easy to add any language</li>
-			<li>Styling done through easy to understand classes like <code>.string</code> or <code>.comment</code></li>
-		</ul>
-	</section>
-	
-</section>
-
-	
-	<section class="slide">
-		<h2>Questions?</h2>
-		<img src="img/questions.gif" alt="">
-	</section>
-
-<footer class="slide" title="The End">
-	<img src="img/clap.gif" style="
-    height: auto;
-    width: 100%;
-    top: 20px;
-    position: absolute;
-" alt="">
-</footer>
-
-<script src="slideshow.js"></script>
-<script src="plugins/css-edit.js"></script>
-<script src="plugins/css-snippets.js"></script>
-<script src="plugins/css-controls.js"></script>
-<script src="plugins/code-highlight.js"></script>
-<script>
-var slideshow = new SlideShow();
-
-var snippets = document.querySelectorAll('.snippet');
-for(var i=0; i<snippets.length; i++) {
-	new CSSSnippet(snippets[i]);
-}
-
-var cssControls = document.querySelectorAll('.css-control');
-for(var i=0; i<cssControls.length; i++) {
-	new CSSControl(cssControls[i]);
-}
-</script>
-	
+		   
+		    document.querySelector('[data-navigation]').appendChild(navigation.element);
+		});
+	</script>
 </body>
 </html>
