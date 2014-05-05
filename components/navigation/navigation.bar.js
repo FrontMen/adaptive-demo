@@ -1,21 +1,12 @@
-define(['../component', '../Advisor', 'css!./navigation.css'], 
-       function (UIComponent, Advisor) {
+define(['../component', 'hbs!./navigation_bar','css!./navigation.css'], 
+       function (UIComponent, template) {
 	var navigationType = {
 		primary: 'ui-button--primary'
 	},
 
-		template = null,
-		deviceType,
-
 		Navigation =  function(attributes) {
-			if(Advisor){
-				deviceType = Advisor.getDeviceType()? '.' + Advisor.getDeviceType() : '';
-			}
-
 			UIComponent.call(this, attributes || Navigation.attributes);
-			
 		};
-
 
 	Navigation.prototype	= Object.create(UIComponent.prototype);
 
@@ -41,10 +32,7 @@ define(['../component', '../Advisor', 'css!./navigation.css'],
 	Navigation.prototype.toHtmlString = function(options) {
 		var attributes = UIComponent.prototype.extendAttributes.call(this, options);
 
-		return curl(['hbs!./components/navigation/navigation_bar' + deviceType], 
-		     function (adaptiveTemplate){
-					return adaptiveTemplate;
-			});
+		return template(attributes);
 	};
 
 	return Navigation;

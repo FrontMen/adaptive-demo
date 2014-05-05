@@ -8,14 +8,10 @@ define([], function() {
 			div = document.createElement('div');
 
 			fragment.appendChild(div);
+			div.innerHTML = this.toString(this.attributes);
 
-			Object.defineProperty(this, 'element', { value : fragment.firstChild, enumerable:false});
+		Object.defineProperty(this, 'element', { value : fragment.firstChild.firstChild, enumerable:false});
 
-			div.innerHTML = this.toString(this.attributes).then(function(string){
-				this.element.innerHTML = string(this.attributes);
-			}.bind(this));
-
-		
 	}
 
 	// Attributes handling
